@@ -20,13 +20,14 @@ namespace CapaPresentacionAdmin.Controllers
             return View();
         }
 
+        [HttpGet]
         public JsonResult ListarUsuarios()
         {
             List<Usuario> listaUsuarios = new List<Usuario>();
 
             listaUsuarios = new CN_Usuarios().Listar();
 
-            return Json(listaUsuarios, JsonRequestBehavior.AllowGet);
+            return Json(new { data = listaUsuarios }, JsonRequestBehavior.AllowGet);
         }
     }
 }
